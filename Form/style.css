@@ -282,3 +282,284 @@ input[type="file"] {
 #fee-panel:hover {
   transform: scale(1.02);
 }
+
+#themeToggle {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing:1 px;
+  width: auto;
+  transition: all 0.3s;
+}
+
+#themeToggle:hover {
+  background: white;
+  color: #1565c0;
+}
+
+body.dark {
+  background: linear-gradient(to bottom, #000000, #0a0a0a, #111111);
+}
+
+.dark .card {
+  background: #1a1a2e;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+}
+
+.dark .section {
+  background: #16213e;
+  border-color: #0f3460;
+}
+
+.dark .section:hover {
+  border-color: #42a5f5;
+}
+
+.dark .section-title {
+  color: #42a5f5;
+  border-bottom-color: #42a5f5;
+}
+
+.dark input, .dark select, .dark textarea {
+  background: #0f3460;
+  color: white;
+  border-color: #1565c0;
+}
+
+.dark input:focus, .dark select:focus, .dark textarea:focus {
+  background: #1a237e;
+  border-color: #42a5f5;
+}
+
+.dark label {
+  color: #90caf9;
+}
+
+.dark .agree-section {
+  background: #16213e;
+  border-color: #0f3460;
+}
+
+.dark .agree-section span {
+  color: #90caf9;
+}
+
+.dark details {
+  background: #16213e;
+  border-color: #0f3460;
+}
+
+.dark details ol {
+  color: #90caf9;
+}
+
+.dark details ul {
+  color: #bbdefb;
+}
+
+.dark summary {
+  color: #42a5f5;
+}
+
+.dark #fee-panel {
+  background: linear-gradient(135deg, #0f3460, #1a237e);
+  border-color: #42a5f5;
+  color: #90caf9;
+}
+
+.dark #error-message {
+  background: #4a0000;
+  color: #ff8a80;
+  border-color: #ff5252;
+}
+
+.dark #success-message {
+  background: #003300;
+  color: #69f0ae;
+  border-color: #00e676;
+}
+
+.dark #counter {
+  color: #42a5f5;
+}
+
+.dark #progress-label {
+  color: #42a5f5;
+}
+
+.dark #themeToggle {
+  border-color: #42a5f5;
+  color: #42a5f5;
+}
+
+.dark #themeToggle:hover {
+  background: #42a5f5;
+  color: #0a0a1a;
+}
+
+#confirmation-screen {
+  display: none;
+}
+
+.confirm-section {
+  border: 1px solid #d0d8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: white;
+}
+
+.dark .confirm-section {
+  background: #16213e;
+  border-color: #0f3460;
+}
+
+.confirm-title {
+  font-size: 15px;
+  color: #1565c0;
+  border-bottom: 2px solid #1565c0;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.dark .confirm-title {
+  color: #42a5f5;
+  border-bottom-color: #42a5f5;
+}
+
+.confirm-section p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.dark .confirm-section p {
+  color: #90caf9;
+}
+
+#confirmation-screen h2 {
+  text-align: center;
+  color: #1a237e;
+  margin-bottom: 20px;
+}
+
+.dark #confirmation-screen h2 {
+  color: #90caf9;
+}
+
+.confirm-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.confirm-buttons button {
+  flex: 1;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#confirmBtn {
+  background: linear-gradient(to right, #1a237e, #1565c0);
+  color: white;
+}
+
+#goBackBtn {
+  background: #e0e0e0;
+  color: #333;
+}
+
+#goBackBtn:hover {
+  background: #bdbdbd;
+}
+
+#idcard-screen {
+  display: none;
+  text-align: center;
+}
+
+#idcard-screen h2 {
+  color: #1a237e;
+  margin-bottom: 6px;
+}
+
+.dark #idcard-screen h2 {
+  color: #90caf9;
+}
+
+#idcard-subtitle {
+  color: #1565c0;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+#card-flipper {
+  width: 340px;
+  height: 220px;
+  perspective: 1000px;
+  margin: 0 auto 24px auto;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+
+#card-flipper.flipped #card-inner {
+  transform: rotateY(180deg);
+}
+
+#card-front, #card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+#card-back {
+  transfrom: rotateY(180deg);
+}
+
+#card-header-strip {
+  padding: 10px;
+  text-align: center;
+}
+
+#card-org {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#card-org-full {
+  font-size: 7px;
+  color: rgba(255,255,255,0.85);
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+#card-club-name-display {
+  font-size: 11px;
+  color: rgba(255,255,255,0.9);
+  margin-top: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+

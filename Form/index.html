@@ -10,6 +10,7 @@
   <div class="card-header">
     <h1>Club Registration Form</h1>
     <p>Join a club and make a difference!</p>
+    <button type="button" id="themeToggle">🌙 Dark Mode</button> 
   </div>
 
   <form onsubmit="handleSubmit(event)">
@@ -112,7 +113,7 @@
 
   <p>Base Fee: <span id="baseFee">-</span></p>
   <p>School Fee: <span id="schoolFee">-</span></p>
-  <p>Materials Fee: <span id="materialsFee">-</span>  </p>
+  <p>Materials Fee: <span id="materialFee">-</span>  </p>
 
   <hr>
 
@@ -190,6 +191,103 @@
 
  
 </form>
+
+<div id="confirmation-screen">
+  <h2>Please Confirm Your Details</h2>
+
+  <div class="confirm-section">
+    <div class="confirm-title">Personal Information</div>
+    <p><strong>Full Name:</strong> <span id="c-name"></span></p>
+    <p><strong>Age:</strong> <span id="c-age"></span></p>
+    <p><strong>Gender:</strong> <span id="c-gender"></span></p>
+    <p><strong>Nationality:</strong> <span id="c-nationality"></span></p>
+  </div>
+
+  <div class="confirm-section">
+    <div class="confirm-title">School Information</div>
+    <p><strong>School Name:</strong> <span id="c-school"></span></p>
+    <p><strong>Grade:</strong> <span id="c-grade"></span></p>
+  </div>
+
+  <div class="confirm-section">
+    <div class="confirm-title">Contact Information</div>
+    <p><strong>Email:</strong> <span id="c-email"></span></p>
+    <p><strong>Phone:</strong> <span id="c-phone"></span></p>
+    <p><strong>Address:</strong> <span id="c-address"></span></p>
+  </div>
+
+  <div class="confirm-section">
+    <div class="confirm-title">Guardian Information</div>
+    <p><strong>Guardian Name:</strong> <span id="c-guardian"></span></p>
+    <p><strong>Parent Phone:</strong> <span id="c-parentphone"></span></p>
+    <p><strong>Emergency Contact:</strong> <span id="c-emergency"></span></p>
+  </div>
+
+  <div class="confirm-section">
+    <div class="confirm-title">Club Preferences</div>
+    <p><strong>Club:</strong> <span id="c-club"></span></p>
+    <p><strong>Meeting Day:</strong> <span id="c-meetingday"></span></p>
+    <p><strong>Meeting School:</strong> <span id="c-meetingschool"></span></p>
+  </div>
+
+  <div class="confirm-buttons">
+    <button type="button" id="confirmBtn">Confirm & Register</button>
+    <button type="button" id="goBackBtn">Go Back</button>
+  </div>
+</div>
+
+<div id="idcard-screen">
+  <h2>Your ID Card Preview</h2>
+  <p id="idcard-subtitle">Click the card to flip it!</p>
+
+  <div id="card-flipper">
+    <div id="card-inner">
+
+      <div id="card-front">
+        <div id="card-header-strip">
+          <div id="card-org">DEAOS</div>
+          <div id="card-org-full">Dhaka Extracurricular Activities Organization for Schools</div>
+          <div id="card-club-name-display"></div>
+        </div>
+        <div id="card-logo"></div>
+        <img id="card-photo" src="" alt="Photo">
+        <div id="card-name-display"></div>
+        <div id="card-grade-display"></div>
+        <div id="card-school-display"></div>
+        <div id="card-id-display"></div>
+      </div>
+
+      <div id="card-back">
+        <div id="card-back-header">
+          <div id="card-org-back">DEAOS</div>
+          <div id="card-club-back"></div>
+        </div>
+        <div id="card-back-info">
+          <p><strong>Meeting Day:</strong> <span id="card-meetingday"></span></p>
+          <p><strong>Meeting School:</strong> <span id="card-meetingschool"></span></p>
+          <p><strong>Emergency Contact:</strong> <span id="card-emergency"></span></p>
+          <p><strong>Email:</strong> <span id="card-email"></span></p>
+        </div>
+        <div id="card-rules-summary">
+          <strong>Key Rules:</strong>
+          <ul>
+            <li>Mandatory attendance at all meetings</li>
+            <li>Respect all members and staff</li>
+            <li>Complete all tasks by deadline</li>
+            <li>Fees due by 15th of each month</li>
+          </ul>
+        </div>
+        <div id="card-barcode">▌▍▎▏▌▍▎▏▌▍▎▏▌▍▎▏▌▍▎▏▌▍▎▏</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="idcard-buttons">
+    <button type="button" id="finishBtn">Complete Registration</button>
+    <button type="button" id="backToConfirmBtn">Go Back</button>
+  </div>
+</div>
 
 <div id="error-message">
     You must agree to the club rules before registering!
