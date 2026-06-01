@@ -3,6 +3,7 @@
 <head>
   <title>Club Registration</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/4.1.7/signature_pad.umd.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -188,6 +189,18 @@
       <span>I agree to the club rules</span>
     </div>
   
+    <div class="section">
+      <div class="section-title">Digital Signature</div>
+      <label>Please sign below:</label>
+      <div id=""signiture-container>
+        <canvas id=""signiture-pad"></canvas>
+        <button type="button" id="clear-signature">Clear</button>
+      </div>
+    </div>
+    <p id="signiture-error" style="display: none; color: #c62828; font-size:13px;"">Please provide your signature before registering.</p>
+
+  </div>
+
     <button type="submit">Register</button>
 
  
@@ -256,7 +269,11 @@
         <div id="card-grade-display"></div>
         <div id="card-school-display"></div>
         <div id="card-id-display"></div>
-        <div id=""card-dates">
+       <div id="card-signiture">
+        <img id="card-signiture-img" src="" alt="Signature">
+        <div id="card-signiture-label">MemberSignature</div>
+       </div>
+        <div id="card-dates">
           <div id="card-issue-date">
             ISSUE DATE
             <span id="card-issue-val"></span>
@@ -264,6 +281,7 @@
           <div id="card-expiry-date">
             EXPIRY DATE
             <span id="card-expiry-val"></span>
+          </div>
         </div>
       </div>
 
@@ -294,8 +312,8 @@
   </div>
 
   <div class="idcard-buttons">
-    <button type="button" id="downloadBtn">Download ID</button>
-    <b
+    <button type="button" id="downloadBtn">⬇ Download ID</button>
+    <button type="button" id="printBtn">🖨 Print ID</button>
     <button type="button" id="finishBtn">Complete Registration</button>
     <button type="button" id="backToConfirmBtn">Go Back</button>
   </div>

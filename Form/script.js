@@ -1,3 +1,24 @@
+const canvas = document.getElementById('signature-pad');
+const signaturePad = new SignaturePad(canvas, {
+  backgroundColor: 'rgba(255,255,255,0)',
+  penColor: '#1a237e'
+});
+
+function resizeCanvas() {
+  const ratio = Math.max(window.devicePixelRatio || 1, 1);
+  canvas.width = canvas.offsetWidth * ratio;
+  canvas.height = canvas.offsetHeight * ratio;
+  canvas.getContext('2d').scale(ratio, ratio);
+  signaturePad.clear();
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+document.getElementById('clearSignature').addEventListener('click', function() {
+  signaturePad.clear();
+});
+
 function handleSubmit(event) {
   event.preventDefault();
 
@@ -5,14 +26,22 @@ function handleSubmit(event) {
   const errorMessage = document.getElementById('error-message');
   const successMessage = document.getElementById('success-message');
   const confirmationScreen = document.getElementById('confirmation-screen');
+  const signatureError = document.getElementById('signature-error');
   const form = document.querySelector('form');
 
   errorMessage.style.display = 'none';
   successMessage.style.display = 'none';
+  signatureError.style.display = 'none';
 
   if (!checkbox.checked) {
     errorMessage.style.display = 'block';
     errorMessage.scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+
+  if (signaturePad.isEmpty()) {
+    signatureError.style.display = 'block';
+    signatureError.scrollIntoView({ behavior: 'smooth' });
     return;
   }
 
@@ -94,7 +123,6 @@ document.getElementById('goBackBtn').addEventListener('click', function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ---- CONFIRM BTN → show ID card screen ----
 document.getElementById('confirmBtn').addEventListener('click', function() {
   const club = document.querySelector('[name="club"]').value;
   const name = document.querySelector('[name="fullname"]').value;
@@ -133,10 +161,13 @@ document.getElementById('confirmBtn').addEventListener('click', function() {
   const expiryDate = expiry.toLocaleDateString('en-GB');
 
   const color = clubColors[club] || "linear-gradient(135deg, #1a237e, #1565c0)";
+
   document.getElementById('card-front').style.background = color;
   document.getElementById('card-back').style.background = color;
   document.getElementById('card-back-header').style.background = 'rgba(0,0,0,0.2)';
   document.getElementById('card-header-strip').style.background = 'rgba(0,0,0,0.2)';
+  document.getElementById('card-flipper').style.width = '320px';
+  document.getElementById('card-flipper').style.height = '500px';
 
   document.getElementById('card-logo').textContent = clubLogos[club] || "🏫";
   document.getElementById('card-club-name-display').textContent = club;
@@ -151,6 +182,7 @@ document.getElementById('confirmBtn').addEventListener('click', function() {
   document.getElementById('card-meetingschool').textContent = meetingschool;
   document.getElementById('card-emergency').textContent = emergency;
   document.getElementById('card-email').textContent = email;
+  document.getElementById('card-signature-img').src = signaturePad.toDataURL();
 
   if (photoSrc && photoSrc !== window.location.href) {
     document.getElementById('card-photo').src = photoSrc;
@@ -164,48 +196,96 @@ document.getElementById('confirmBtn').addEventListener('click', function() {
   document.getElementById('idcard-screen').scrollIntoView({ behavior: 'smooth' });
 });
 
-// ---- FLIP CARD ----
 document.getElementById('card-flipper').addEventListener('click', function() {
   this.classList.toggle('flipped');
 });
 
-// ---- GO BACK TO CONFIRMATION ----
 document.getElementById('backToConfirmBtn').addEventListener('click', function() {
   document.getElementById('idcard-screen').style.display = 'none';
   document.getElementById('confirmation-screen').style.display = 'block';
   document.getElementById('confirmation-screen').scrollIntoView({ behavior: 'smooth' });
 });
 
-// ---- FINISH REGISTRATION ----
 document.getElementById('finishBtn').addEventListener('click', function() {
   document.getElementById('idcard-screen').style.display = 'none';
   document.getElementById('success-message').style.display = 'block';
   document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
 });
 
-// ---- DOWNLOAD ID CARD ----
 document.getElementById('downloadBtn').addEventListener('click', function() {
   const cardFront = document.getElementById('card-front');
-  html2canvas(cardFront).then(function(canvas) {
-    const link = document.createElement('a');
-    link.download = 'DEAOS-ID-Card.png';
-    link.href = canvas.toDataURL();
-    link.click();
+  const cardBack = document.getElementById('card-back');
+
+  html2canvas(cardFront).then(function(frontCanvas) {
+    html2canvas(cardBack).then(function(backCanvas) {
+
+      const combined = document.createElement('canvas');
+      combined.width = frontCanvas.width;
+      combined.height = frontCanvas.height * 2 + 20;
+
+      const ctx = combined.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, combined.width, combined.height);
+      ctx.drawImage(frontCanvas, 0, 0);
+      ctx.drawImage(backCanvas, 0, frontCanvas.height + 20);
+
+      const link = document.createElement('a');
+      link.download = 'DEAOS-ID-Card.png';
+      link.href = combined.toDataURL();
+      link.click();
+    });
   });
 });
 
-// ---- PRINT ID CARD ----
 document.getElementById('printBtn').addEventListener('click', function() {
   const cardFront = document.getElementById('card-front');
-  html2canvas(cardFront).then(function(canvas) {
-    const win = window.open('');
-    win.document.write('<img src="' + canvas.toDataURL() + '" style="width:100%">');
-    win.document.close();
-    win.print();
+  const cardBack = document.getElementById('card-back');
+
+  html2canvas(cardFront).then(function(frontCanvas) {
+    html2canvas(cardBack).then(function(backCanvas) {
+
+      const win = window.open('');
+      win.document.write(`
+        <html>
+          <head>
+            <title>DEAOS ID Card</title>
+            <style>
+              body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 20px;
+                font-family: Arial, sans-serif;
+              }
+              img {
+                width: 320px;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+              }
+              p {
+                font-size: 12px;
+                color: #666;
+                margin: 0;
+              }
+            </style>
+          </head>
+          <body>
+            <p>FRONT</p>
+            <img src="${frontCanvas.toDataURL()}">
+            <p>BACK</p>
+            <img src="${backCanvas.toDataURL()}">
+          </body>
+        </html>
+      `);
+      win.document.close();
+      win.onload = function() {
+        win.print();
+      };
+    });
   });
 });
 
-// ---- THEME TOGGLE ----
 const themeToggle = document.getElementById('themeToggle');
 
 themeToggle.addEventListener('click', function() {
