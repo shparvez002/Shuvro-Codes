@@ -94,12 +94,118 @@ document.getElementById('goBackBtn').addEventListener('click', function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+// ---- CONFIRM BTN → show ID card screen ----
 document.getElementById('confirmBtn').addEventListener('click', function() {
+  const club = document.querySelector('[name="club"]').value;
+  const name = document.querySelector('[name="fullname"]').value;
+  const grade = document.querySelector('[name="grade"]').value;
+  const school = document.querySelector('[name="schoolname"]').value;
+  const meetingday = document.querySelector('[name="meetingday"]').value;
+  const meetingschool = document.querySelector('[name="meetingschool"]').value;
+  const emergency = document.querySelector('[name="emergency"]').value;
+  const email = document.querySelector('[name="email"]').value;
+  const photoSrc = document.getElementById('preview').src;
+
+  const clubLogos = {
+    "Chess Club": "♟️",
+    "Art Club": "🎨",
+    "Science Club": "🔬",
+    "Math Club": "📐",
+    "Sports Club": "⚽",
+    "Community Service Club": "🤝"
+  };
+
+  const clubColors = {
+    "Chess Club": "linear-gradient(135deg, #1a1a1a, #b8860b)",
+    "Art Club": "linear-gradient(135deg, #880e4f, #e91e63)",
+    "Science Club": "linear-gradient(135deg, #1b5e20, #43a047)",
+    "Math Club": "linear-gradient(135deg, #e65100, #fb8c00)",
+    "Sports Club": "linear-gradient(135deg, #b71c1c, #e53935)",
+    "Community Service Club": "linear-gradient(135deg, #1a237e, #1565c0)"
+  };
+
+  const randomId = 'DEAOS-' + Math.floor(100000000 + Math.random() * 900000000);
+
+  const now = new Date();
+  const issueDate = now.toLocaleDateString('en-GB');
+  const expiry = new Date(now);
+  expiry.setFullYear(expiry.getFullYear() + 1);
+  const expiryDate = expiry.toLocaleDateString('en-GB');
+
+  const color = clubColors[club] || "linear-gradient(135deg, #1a237e, #1565c0)";
+  document.getElementById('card-front').style.background = color;
+  document.getElementById('card-back').style.background = color;
+  document.getElementById('card-back-header').style.background = 'rgba(0,0,0,0.2)';
+  document.getElementById('card-header-strip').style.background = 'rgba(0,0,0,0.2)';
+
+  document.getElementById('card-logo').textContent = clubLogos[club] || "🏫";
+  document.getElementById('card-club-name-display').textContent = club;
+  document.getElementById('card-name-display').textContent = name;
+  document.getElementById('card-grade-display').textContent = grade;
+  document.getElementById('card-school-display').textContent = school;
+  document.getElementById('card-id-display').textContent = randomId;
+  document.getElementById('card-issue-val').textContent = issueDate;
+  document.getElementById('card-expiry-val').textContent = expiryDate;
+  document.getElementById('card-club-back').textContent = club;
+  document.getElementById('card-meetingday').textContent = meetingday;
+  document.getElementById('card-meetingschool').textContent = meetingschool;
+  document.getElementById('card-emergency').textContent = emergency;
+  document.getElementById('card-email').textContent = email;
+
+  if (photoSrc && photoSrc !== window.location.href) {
+    document.getElementById('card-photo').src = photoSrc;
+    document.getElementById('card-photo').style.display = 'block';
+  } else {
+    document.getElementById('card-photo').style.display = 'none';
+  }
+
   document.getElementById('confirmation-screen').style.display = 'none';
+  document.getElementById('idcard-screen').style.display = 'block';
+  document.getElementById('idcard-screen').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ---- FLIP CARD ----
+document.getElementById('card-flipper').addEventListener('click', function() {
+  this.classList.toggle('flipped');
+});
+
+// ---- GO BACK TO CONFIRMATION ----
+document.getElementById('backToConfirmBtn').addEventListener('click', function() {
+  document.getElementById('idcard-screen').style.display = 'none';
+  document.getElementById('confirmation-screen').style.display = 'block';
+  document.getElementById('confirmation-screen').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ---- FINISH REGISTRATION ----
+document.getElementById('finishBtn').addEventListener('click', function() {
+  document.getElementById('idcard-screen').style.display = 'none';
   document.getElementById('success-message').style.display = 'block';
   document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
 });
 
+// ---- DOWNLOAD ID CARD ----
+document.getElementById('downloadBtn').addEventListener('click', function() {
+  const cardFront = document.getElementById('card-front');
+  html2canvas(cardFront).then(function(canvas) {
+    const link = document.createElement('a');
+    link.download = 'DEAOS-ID-Card.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+});
+
+// ---- PRINT ID CARD ----
+document.getElementById('printBtn').addEventListener('click', function() {
+  const cardFront = document.getElementById('card-front');
+  html2canvas(cardFront).then(function(canvas) {
+    const win = window.open('');
+    win.document.write('<img src="' + canvas.toDataURL() + '" style="width:100%">');
+    win.document.close();
+    win.print();
+  });
+});
+
+// ---- THEME TOGGLE ----
 const themeToggle = document.getElementById('themeToggle');
 
 themeToggle.addEventListener('click', function() {

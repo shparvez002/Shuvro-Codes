@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Club Registration</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -255,6 +256,15 @@
         <div id="card-grade-display"></div>
         <div id="card-school-display"></div>
         <div id="card-id-display"></div>
+        <div id=""card-dates">
+          <div id="card-issue-date">
+            ISSUE DATE
+            <span id="card-issue-val"></span>
+          </div>
+          <div id="card-expiry-date">
+            EXPIRY DATE
+            <span id="card-expiry-val"></span>
+        </div>
       </div>
 
       <div id="card-back">
@@ -284,6 +294,8 @@
   </div>
 
   <div class="idcard-buttons">
+    <button type="button" id="downloadBtn">Download ID</button>
+    <b
     <button type="button" id="finishBtn">Complete Registration</button>
     <button type="button" id="backToConfirmBtn">Go Back</button>
   </div>

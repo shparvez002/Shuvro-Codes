@@ -533,7 +533,7 @@ body.dark {
 }
 
 #card-back {
-  transfrom: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 #card-header-strip {
@@ -563,3 +563,165 @@ body.dark {
   text-transform: uppercase;
 }
 
+#card-logo {
+  font-size: 30px;
+  margin: 4px 0;
+}
+
+#card-photo {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  display: block;
+  margin: 0 auto 6px auto;
+}
+
+#card-name-display {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#card-school-display {
+  font-size: 10px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 2px;
+  padding: 0 10px;
+}
+
+#card-id-display {
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+  letter-spacing: 1px;
+}
+
+#card-back-header {
+  padding: 10px;
+  text-align: center;
+}
+
+#card-org-back {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#card-club-back {
+  font-size: 10px;
+  color: rgba(255,255,255,0.85);
+  margin-top: 2px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#card-back-info {
+  background: rgba(255,255,255,0.15);
+  margin: 0 8px;
+  border-radius: 6px;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+#card-back-info p {
+  margin: 3px 0;
+  font-size: 9px;
+  color: white;
+}
+
+#card-rules-summary {
+  margin: 6px 8px 0 8px;
+  text-align: left;
+}
+
+#card-rules-summary strong {
+  font-size: 9px;
+  color: rgba(255,255,255,0.9);
+}
+
+#card-rules-summary ul {
+  margin: 3px 0 0 0;
+  padding-left: 14px;
+}
+
+#card-rules-summary li {
+  font-size: 8px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2px;
+}
+
+#card-barcode {
+  font-size: 14px;
+  letter-spacing: -2px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  text-align: center;
+}
+
+.idcard-buttons button {
+  flex: 1;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#finishBtn {
+  background: linear-gradient(to right, #1a237e, #1565c0);
+  color: white;
+}
+
+#finishBtn:hover {
+  opacity: 0.9;
+}
+
+#backToConfirmBtn {
+  background: #e0e0e0;
+  color: #333;
+}
+
+#backToConfirmBtn:hover {
+  background: #bdbdbd;
+}
+
+#card-dates {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding: 4px 10px;
+}
+
+#card-issue-date, #card-expiry-date {
+  font-size: 8px;
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+}
+
+#card-issue-date span, #card-expiry-date span {
+  display: block;
+  font-size: 9px;
+  color: white;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+#downloadBtn {
+  background: linear-gradient(to right, #1b5e20, #388e3c);
+  color: white;
+}
+
+#printBtn {
+  background: linear-gradient(to right, #e65100, #f57c00);
+  color: white;
+}
+
+#downloadBtn:hover, #printBtn:hover {
+  opacity: 0.9;
+}
