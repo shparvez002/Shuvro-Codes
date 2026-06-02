@@ -1,20 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: linear-gradient(to bottom, #0a0a1a, #0d1b3e, #1a237e);
   font-family: Arial Black, Arial, sans-serif;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   min-height: 100vh;
-  margin: 0;
-  padding: 40px;
-  box-sizing: border-box;
+  padding: 40px 20px;
 }
 
 .card {
   background: #f8f9ff;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  width: 550px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  width: 100%;
+  max-width: 600px;
 }
 
 .card-header {
@@ -30,6 +36,7 @@ body {
   color: white;
   margin: 0;
   letter-spacing: 2px;
+  font-size: 22px;
 }
 
 .card-header p {
@@ -50,7 +57,7 @@ body {
 
 .section:hover {
   border-color: #1565c0;
-  box-shadow: 0 2px 12px rgba(21, 101, 192, 0.15);
+  box-shadow: 0 2px 12px rgba(21,101,192,0.15);
   transition: all 0.3s;
 }
 
@@ -80,7 +87,6 @@ input, select, textarea {
   border: 1px solid #b0bec5;
   border-radius: 6px;
   font-size: 14px;
-  box-sizing: border-box;
   background: #f8f9ff;
   color: #0a0a1a;
 }
@@ -88,7 +94,7 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: #1565c0;
-  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+  box-shadow: 0 0 0 3px rgba(21,101,192,0.15);
   background: white;
 }
 
@@ -178,6 +184,7 @@ input[type="file"] {
   background: #e8eaf6;
   padding: 12px;
   color: #1565c0;
+  margin-bottom: 10px;
 }
 
 select {
@@ -246,17 +253,13 @@ select {
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #1565c0;
-  box-shadow: 0 6px 18px rgba(21,101, 192, 0.25);
+  box-shadow: 0 6px 18px rgba(21,101,192,0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #preview:hover {
-  transform:scale(1.05);
-  box-shadow: 0 10px 25px rgba(21, 101, 192, 0.35);
-}
-
-input[type="file"] {
-  margin-bottom: 10px;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(21,101,192,0.35);
 }
 
 #fee-panel {
@@ -266,7 +269,7 @@ input[type="file"] {
   background: linear-gradient(135deg, #e3f2fd, #bbdefb);
   border: 1px solid #1565c0;
   color: #0d47a1;
-  box-shadow: 0 6px 18px rgba(21, 101, 192, 0.2);
+  box-shadow: 0 6px 18px rgba(21,101,192,0.2);
   transition: transform 0.2s ease;
 }
 
@@ -292,7 +295,7 @@ input[type="file"] {
   color: white;
   cursor: pointer;
   font-size: 14px;
-  letter-spacing:1 px;
+  letter-spacing: 1px;
   width: auto;
   transition: all 0.3s;
 }
@@ -300,106 +303,6 @@ input[type="file"] {
 #themeToggle:hover {
   background: white;
   color: #1565c0;
-}
-
-body.dark {
-  background: linear-gradient(to bottom, #000000, #0a0a0a, #111111);
-}
-
-.dark .card {
-  background: #1a1a2e;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
-}
-
-.dark .section {
-  background: #16213e;
-  border-color: #0f3460;
-}
-
-.dark .section:hover {
-  border-color: #42a5f5;
-}
-
-.dark .section-title {
-  color: #42a5f5;
-  border-bottom-color: #42a5f5;
-}
-
-.dark input, .dark select, .dark textarea {
-  background: #0f3460;
-  color: white;
-  border-color: #1565c0;
-}
-
-.dark input:focus, .dark select:focus, .dark textarea:focus {
-  background: #1a237e;
-  border-color: #42a5f5;
-}
-
-.dark label {
-  color: #90caf9;
-}
-
-.dark .agree-section {
-  background: #16213e;
-  border-color: #0f3460;
-}
-
-.dark .agree-section span {
-  color: #90caf9;
-}
-
-.dark details {
-  background: #16213e;
-  border-color: #0f3460;
-}
-
-.dark details ol {
-  color: #90caf9;
-}
-
-.dark details ul {
-  color: #bbdefb;
-}
-
-.dark summary {
-  color: #42a5f5;
-}
-
-.dark #fee-panel {
-  background: linear-gradient(135deg, #0f3460, #1a237e);
-  border-color: #42a5f5;
-  color: #90caf9;
-}
-
-.dark #error-message {
-  background: #4a0000;
-  color: #ff8a80;
-  border-color: #ff5252;
-}
-
-.dark #success-message {
-  background: #003300;
-  color: #69f0ae;
-  border-color: #00e676;
-}
-
-.dark #counter {
-  color: #42a5f5;
-}
-
-.dark #progress-label {
-  color: #42a5f5;
-}
-
-.dark #themeToggle {
-  border-color: #42a5f5;
-  color: #42a5f5;
-}
-
-.dark #themeToggle:hover {
-  background: #42a5f5;
-  color: #0a0a1a;
 }
 
 #confirmation-screen {
@@ -414,11 +317,6 @@ body.dark {
   background: white;
 }
 
-.dark .confirm-section {
-  background: #16213e;
-  border-color: #0f3460;
-}
-
 .confirm-title {
   font-size: 15px;
   color: #1565c0;
@@ -428,29 +326,16 @@ body.dark {
   font-weight: bold;
 }
 
-.dark .confirm-title {
-  color: #42a5f5;
-  border-bottom-color: #42a5f5;
-}
-
 .confirm-section p {
   margin: 6px 0;
   font-size: 14px;
   color: #333;
 }
 
-.dark .confirm-section p {
-  color: #90caf9;
-}
-
 #confirmation-screen h2 {
   text-align: center;
   color: #1a237e;
   margin-bottom: 20px;
-}
-
-.dark #confirmation-screen h2 {
-  color: #90caf9;
 }
 
 .confirm-buttons {
@@ -494,15 +379,12 @@ body.dark {
   margin-bottom: 6px;
 }
 
-.dark #idcard-screen h2 {
-  color: #90caf9;
-}
-
 #idcard-subtitle {
   color: #1565c0;
   font-size: 13px;
   margin-bottom: 20px;
 }
+
 #card-flipper {
   width: 320px;
   height: 500px;
@@ -587,6 +469,12 @@ body.dark {
   letter-spacing: 1px;
 }
 
+#card-grade-display {
+  font-size: 11px;
+  color: rgba(255,255,255,0.85);
+  margin-top: 2px;
+}
+
 #card-school-display {
   font-size: 10px;
   color: rgba(255,255,255,0.75);
@@ -599,6 +487,48 @@ body.dark {
   color: rgba(255,255,255,0.7);
   margin-top: 4px;
   letter-spacing: 1px;
+}
+
+#card-dates {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding: 4px 10px;
+}
+
+#card-issue-date, #card-expiry-date {
+  font-size: 8px;
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+}
+
+#card-issue-date span, #card-expiry-date span {
+  display: block;
+  font-size: 9px;
+  color: white;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+#card-signature {
+  margin-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 6px;
+  text-align: center;
+}
+
+#card-signature img {
+  max-width: 120px;
+  max-height: 40px;
+  filter: brightness(0) invert(1);
+}
+
+#card-signature-label {
+  font-size: 8px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
 }
 
 #card-back-header {
@@ -672,14 +602,14 @@ body.dark {
 }
 
 .idcard-buttons button {
-  flex: 1;
-  padding: 14px;
+  padding: 12px;
   border-radius: 6px;
-  font-size: 15px;
+  font-size: 13px;
   cursor: pointer;
   border: none;
   letter-spacing: 1px;
   text-transform: uppercase;
+  transition: opacity 0.2s;
 }
 
 #finishBtn {
@@ -698,27 +628,6 @@ body.dark {
 
 #backToConfirmBtn:hover {
   background: #bdbdbd;
-}
-
-#card-dates {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 4px;
-  padding: 4px 10px;
-}
-
-#card-issue-date, #card-expiry-date {
-  font-size: 8px;
-  color: rgba(255,255,255,0.75);
-  text-align: center;
-}
-
-#card-issue-date span, #card-expiry-date span {
-  display: block;
-  font-size: 9px;
-  color: white;
-  font-weight: bold;
-  margin-top: 2px;
 }
 
 #downloadBtn {
@@ -748,6 +657,7 @@ body.dark {
   height: 150px;
   display: block;
   cursor: crosshair;
+  touch-action: none;
 }
 
 #signature-buttons {
@@ -772,6 +682,128 @@ body.dark {
 
 #clearSignature:hover {
   background: #b71c1c;
+}
+
+body.dark {
+  background: linear-gradient(to bottom, #000000, #0a0a0a, #111111);
+}
+
+body.dark .card {
+  background: #1a1a2e;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+}
+
+body.dark .section {
+  background: #16213e;
+  border-color: #0f3460;
+}
+
+body.dark .section:hover {
+  border-color: #42a5f5;
+}
+
+body.dark .section-title {
+  color: #42a5f5;
+  border-bottom-color: #42a5f5;
+}
+
+body.dark input, body.dark select, body.dark textarea {
+  background: #0f3460;
+  color: white;
+  border-color: #1565c0;
+}
+
+body.dark input:focus, body.dark select:focus, body.dark textarea:focus {
+  background: #1a237e;
+  border-color: #42a5f5;
+}
+
+body.dark label {
+  color: #90caf9;
+}
+
+body.dark .agree-section {
+  background: #16213e;
+  border-color: #0f3460;
+}
+
+body.dark .agree-section span {
+  color: #90caf9;
+}
+
+body.dark details {
+  background: #16213e;
+  border-color: #0f3460;
+}
+
+body.dark details ol {
+  color: #90caf9;
+}
+
+body.dark details ul {
+  color: #bbdefb;
+}
+
+body.dark summary {
+  color: #42a5f5;
+}
+
+body.dark #fee-panel {
+  background: linear-gradient(135deg, #0f3460, #1a237e);
+  border-color: #42a5f5;
+  color: #90caf9;
+}
+
+body.dark #error-message {
+  background: #4a0000;
+  color: #ff8a80;
+  border-color: #ff5252;
+}
+
+body.dark #success-message {
+  background: #003300;
+  color: #69f0ae;
+  border-color: #00e676;
+}
+
+body.dark #counter {
+  color: #42a5f5;
+}
+
+body.dark #themeToggle {
+  border-color: #42a5f5;
+  color: #42a5f5;
+}
+
+body.dark #themeToggle:hover {
+  background: #42a5f5;
+  color: #0a0a1a;
+}
+
+body.dark .confirm-section {
+  background: #16213e;
+  border-color: #0f3460;
+}
+
+body.dark .confirm-title {
+  color: #42a5f5;
+  border-bottom-color: #42a5f5;
+}
+
+body.dark .confirm-section p {
+  color: #90caf9;
+}
+
+body.dark #confirmation-screen h2 {
+  color: #90caf9;
+}
+
+body.dark #idcard-screen h2 {
+  color: #90caf9;
+}
+
+body.dark #idcard-subtitle {
+  color: #90caf9;
 }
 
 body.dark #signature-container {

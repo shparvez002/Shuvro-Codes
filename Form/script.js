@@ -9,11 +9,10 @@ function resizeCanvas() {
   canvas.width = canvas.offsetWidth * ratio;
   canvas.height = canvas.offsetHeight * ratio;
   canvas.getContext('2d').scale(ratio, ratio);
-  signaturePad.clear();
 }
 
 window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
+window.addEventListener('load', resizeCanvas);
 
 document.getElementById('clearSignature').addEventListener('click', function() {
   signaturePad.clear();
