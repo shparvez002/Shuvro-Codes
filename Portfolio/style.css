@@ -1,5 +1,9 @@
 body {
-    background-color: #add8e6;
+    body {
+    background: #f0f0f0;
+     margin: 0;
+     padding: 20px;
+}
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,6 +32,12 @@ html {
     font-size: 50px;
     color: rgba(62, 70, 123, 0.8);
     font-weight: bolder;
+}
+
+.AboutMe p {
+    text-align: justify;
+    font-size: 20px;
+    color: rgba(33, 36, 60, 0.8);
 }
 
 .AboutMe:hover {
@@ -74,6 +84,216 @@ html {
 .Projects:hover {
     background-color: lightgoldenrodyellow;
     color: rgba(36, 40, 67, 0.8);
+     transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+ .Projects2 {
+    background-color: lightgray;
+    font-family: ArialBlack;
+    color: rgba(62, 70, 123, 0.8);
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    font-family: SegoeUI, Arial, Sans-serif;
+    transition: all 1s ease;
+     margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(62, 70, 123, 0.8);
+}
+
+.Projects2 h1 {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(26, 31, 62, 0.8);
+    font-weight: bolder;
+}
+
+.Projects2 p {
+    text-align: justify;
+    font-size: 20px;
+    color: rgba(33, 36, 60, 0.8);
+    line-height: 1.5;
+}
+
+.Projects2:hover {
+    background-color: lightgoldenrodyellow;
+    color: rgba(36, 40, 67, 0.8);
+     transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.ContactMe {
+    background-color: rgb(255, 255, 255);
+    font-family: SegoeUI, Arial, Sans-serif;
+    color: rgba(14, 19, 55, 0.8);
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    transition: all 1s ease;
+     margin-bottom: 20px;
+     border-radius: 10px;
+     border: 2px solid rgba(62, 70, 123, 0.8);
+}
+
+.ContactMe h1 {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(26, 31, 62, 0.8);
+    font-weight: bolder;
+}
+
+.ContactMe p {
+    text-align: justify;
+    font-size: 20px;
+    color: rgba(33, 36, 60, 0.8);
+    line-height: 1.5;
+}
+
+.ContactMe:hover {
+    background-color: lightgoldenrodyellow;
+    color: rgba(36, 40, 67, 0.8);
+     transform: translateY(-5px);
+     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+a {
+    color: rgba(53, 59, 103, 0.8);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: rgba(26, 31, 62, 0.8);
+    text-decoration: underline;
+}
+
+.Footer {
+    background-color: rgb(228, 222, 222);
+    font-family: SegoeUI, Arial, Sans-serif;
+    color: rgba(14, 19, 55, 0.8);
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+    transition: all 1s ease;
+     margin-bottom: 20px;
+     border-radius: 10px;
+     border: 2px solid rgba(62, 70, 123, 0.8);
+     text-align: center;
+     width: 100%;
+}
+
+.Footer:hover {
+    background-color: lightgoldenrodyellow;
+    color: rgba(36, 40, 67, 0.8);
+     transform: translateY(-5px);
+     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.Footer p {
+    margin: 0;
+}
+
+.interests {
+    background-color: rgb(167, 158, 158);
+    font-family: ArialBlack;
+    color: rgba(131, 39, 39, 0.8);
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    font-family: SegoeUI, Arial, Sans-serif;
+    transition: all 1s ease;
+     margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(62, 70, 123, 0.8);
+}
+
+.interests h1 {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(65, 30, 30, 0.8);
+    font-weight: bolder;
+}
+
+.interests p {
+    text-align: justify;
+    font-size: 20px;
+    color: rgba(33, 36, 60, 0.8);
+    line-height: 1.5;
+}
+
+.interests:hover {
+    background-color: lightgoldenrodyellow;
+    color: rgba(40, 42, 54, 0.8);
+     transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.starting {
+    background-color: rgb(183, 158, 158);
+    font-family: SegoeUI, Arial, Sans-serif;
+    color: rgba(26, 35, 100, 0.8);
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    transition: all 1s ease;
+     margin-bottom: 20px;
+     border-radius: 10px;
+     border: 2px solid rgba(18, 19, 30, 0.8);
+     text-align: center;
+     width: 100%;
+}
+
+.starting h1 {
+    font-size: 50px;
+    color: rgba(26, 35, 100, 0.8);
+    font-weight: bolder;
+}
+
+.starting p {
+    font-size: 20px;
+    color: rgba(33, 36, 60, 0.8);
+    line-height: 1.5;
+}
+
+.starting:hover {
+    background-color: lightgoldenrodyellow;
+    color: rgba(40, 42, 54, 0.8);
+     transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.Education {
+    background-color: rgb(207, 165, 165);
+    font-family: ArialBlack;
+    color: rgba(51, 61, 12, 0.8);
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    font-family: SegoeUI, Arial, Sans-serif;
+    transition: all 1s ease;
+     margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(45, 48, 68, 0.8);
+}
+
+.Education h1 {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(65, 30, 30, 0.8);
+    font-weight: bolder;
+}
+
+.Education p {
+    text-align: justify;
+    font-size: 20px;
+    color: rgba(33, 36, 60, 0.8);
+    line-height: 1.5;
+}
+
+.Education:hover {
+    background-color: lightgoldenrodyellow;
+    color: rgba(40, 42, 54, 0.8);
      transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
