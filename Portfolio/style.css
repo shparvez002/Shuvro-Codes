@@ -217,7 +217,7 @@ a:hover {
     font-weight: bolder;
 }
 
-.interests p {
+.interests ul    {
     text-align: justify;
     font-size: 20px;
     color: rgba(33, 36, 60, 0.8);
@@ -333,4 +333,11 @@ nav ul li a {
 nav ul li a:hover {
     color: rgba(26, 31, 62, 0.8);
     text-decoration: underline;
+}
+
+hr {
+    width: 100%;
+    border: 0;
+    border-top: 2px solid rgba(62, 70, 123, 0.8);
+    margin: 40px auto;
 }
